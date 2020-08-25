@@ -38,8 +38,9 @@ class LinkServiceImp(private val repository: LinkRepository) : LinkService {
         logger.info("fetching content for site: ", link.url)
         val doc = Jsoup.connect(link.url).get()
         val title = doc.title()
-        val iconName = doc.head().select("link[href~=.*\\.png]").first().attr("href")
+
         val iconUrl = try {
+            val iconName = doc.head().select("link[href~=.*\\.png]").first().attr("href")
             val url = URL(link.url)
             val baseUrl: String = url.protocol.toString() + "://" + url.host
             if (iconName.contains(baseUrl)) iconName else baseUrl + iconName
