@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  api:
+    image: holmes89/links-api
+    build:
+      context: .
+    environment:
+      SPRING_DATA_MONGODB_URI: "mongodb://admin:admin@db"
+    ports:
+      - 8081:8080
+  db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - 27017:27017
