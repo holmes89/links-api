@@ -1,5 +1,5 @@
 # Links API
-Keep track of books to read and organize them by subject
+Keep track of links to read and organize them by subject
 
 ## What problem will this solve?
 
