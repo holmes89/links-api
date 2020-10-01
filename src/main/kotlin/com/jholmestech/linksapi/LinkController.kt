@@ -5,6 +5,7 @@ import java.util.*
 
 @RestController
 @RequestMapping("api/links")
+@CrossOrigin(origins = "*")
 class LinkController(private val service : LinkService) {
     @GetMapping
     fun getAll(): List<Link> = service.findAll()
